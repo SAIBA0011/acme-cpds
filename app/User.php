@@ -75,7 +75,7 @@ class User extends Model implements AuthorizableContract,
     {
         $newBalance = $this->credits->balance -= $amount;
 
-        if ($newBalance <= 0) {
+        if ($newBalance < 0) {
             return false;
         }
 
