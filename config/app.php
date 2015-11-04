@@ -151,6 +151,7 @@ return [
          */
         Laravel\Spark\Providers\SparkServiceProvider::class,
         App\Providers\SparkServiceProvider::class,
+        Kamaln7\Toastr\ToastrServiceProvider::class,
     ],
 
     /*
@@ -199,6 +200,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Toastr'    => Kamaln7\Toastr\Facades\Toastr::class,
 
     ],
 

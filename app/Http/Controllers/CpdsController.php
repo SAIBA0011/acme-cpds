@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cpd;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Kamaln7\Toastr\Facades\Toastr;
 use App\Http\Controllers\Controller;
 
 class CpdsController extends Controller
@@ -25,8 +26,9 @@ class CpdsController extends Controller
         if (auth()->user()->subtractCredit(Cpd::find($id)->cost)) {
             auth()->user()->purchaseCpd($id);
             // Flash Success
+            Toastr::success("Purchase was successful", "Success!");
         }
-        // Flash Failure
+        Toastr::error("Purchase Failed, Not enough credits available to purchase.", "Purchase Failed!");
         return back();
     }
 
