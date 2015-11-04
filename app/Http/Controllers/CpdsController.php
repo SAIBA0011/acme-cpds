@@ -25,10 +25,11 @@ class CpdsController extends Controller
     {        
         if (auth()->user()->subtractCredit(Cpd::find($id)->cost)) {
             auth()->user()->purchaseCpd($id);
-            // Flash Success
             Toastr::success("Purchase was successful", "Success!");
-        }
-        Toastr::error("Purchase Failed, Not enough credits available to purchase.", "Purchase Failed!");
+        } else {
+            Toastr::error("Purchase Failed, Not enough credits available to purchase.", "Purchase Failed!");
+        }        
+
         return back();
     }
 
